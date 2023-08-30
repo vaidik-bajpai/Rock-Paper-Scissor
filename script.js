@@ -1,8 +1,16 @@
-let wins = 0
-let loses = 0
-let draws = 0
-let invalidInput = 0
-let winner = 0
+let wins = 5
+let loses = 5
+let defeatFlag = 1
+
+const rockBtn =  document.getElementById("Rock")
+const paperBtn =document.getElementById("Paper")
+const scissorBtn = document.getElementById("Scissor")
+const resultEl = document.getElementById("result")
+const yourHp = document.getElementById("yourHp")
+const enemyHp = document.getElementById("enemyHp")
+
+yourHp.textContent = wins
+enemyHp.textContent = loses
 
 function getComputerChoice(){
     let randomNum = Math.floor(Math.random() * 3)
@@ -14,75 +22,81 @@ function getComputerChoice(){
         return "Scissor"
 }
 
-function getPlayerChoice(){
-    let playerChoice = window.prompt("Enter the player's choice! : ", "Rock")
-    
-    return playerChoice
+rockBtn.addEventListener("click", function(){
+    playRound("Rock", getComputerChoice())
+})
+paperBtn.addEventListener("click", function(){
+    playRound("Paper", getComputerChoice())
+})
+scissorBtn.addEventListener("click", function(){
+    playRound("Scissor", getComputerChoice())
+})
+
+function checkDefeat(){
+    if(loses === 0) {
+        resultEl.textContent = "You have been Slain"
+        defeatFlag = true
+        
+    }
+    else if(wins === 0){
+        resultEl.textContent = "You have Slain your Enemy"
+        defeatFlag = true
+    } 
 }
 
-/* console.log(getComputerChoice()) */
-
 function playRound(playerSelection, computerSelection){
-    let ps = playerSelection.toUpperCase()
-    if(ps !== "ROCK" && ps !== "PAPER" && ps !== "SCISSOR"){
-        invalidInput++
-        return "Invalid Input"
+    if(defeatFlag === true){
+        return;
     }
-        
+
+    let ps = playerSelection.toUpperCase()
     let cs = computerSelection.toUpperCase()
 
     if(ps === "ROCK" && cs === "PAPER"){
-        loses++
-        return "You Lose! Paper beats Rock"
+        loses--
+        resultEl.textContent = "You Lose! Paper beats Rock"
+        checkDefeat()
+        yourHp.textContent = loses
+        return
     }
     else if(ps === "PAPER" && cs === "SCISSOR"){
-        loses++
-        return "You Lose! Scissor beats Paper"
+        loses--
+        resultEl.textContent = "You Lose! Scissor beats Paper"
+        checkDefeat()
+        yourHp.textContent = loses
+        return
     }
     else if(ps === "SCISSOR" && cs === "ROCK"){
-        loses++
-        return "You Lose! Rock beats Scissor"
+        loses--
+        resultEl.textContent = "You Lose! Rock beats Scissor"
+        checkDefeat()
+        yourHp.textContent = loses
+        return
     }
     else if(cs === "ROCK" && ps === "PAPER"){
-        wins++
-        return "You Won! Paper beats Rock"
+        wins--
+        resultEl.textContent = "You Won! Paper beats Rock"
+        checkDefeat()
+        enemyHp.textContent = wins
+        return
     }
     else if(cs === "PAPER" && ps === "SCISSOR"){
-        wins++
-        return "You Won! Scissor beats Paper"
+        wins--
+        resultEl.textContent = "You Won! Scissor beats Paper"
+        checkDefeat()
+        enemyHp.textContent = wins
+        return
     }
     else if(cs === "SCISSOR" && ps === "ROCK"){
-        wins++
-        return "You Won! Rock beats Scissor"
+        wins--
+        resultEl.textContent = "You Won! Rock beats Scissor"
+        checkDefeat()
+        enemyHp.textContent = wins
+        return
     }
-    else if(ps == cs){
+    else if(ps === cs){
         draws++
-        return "It's a Draw"
+        resultEl.textContent = "It's a Draw"
+        return
     }
-    invalidInput++;
-    return "Invalid Choice"
 }
-
-/* const playerSelection = "rock"
-const computerSelection = getComputerChoice()
-
-console.log(playRound(playerSelection, computerSelection)) */
-
-function game(){
-    for(let i = 0; i < 5; i++){
-        const playerSelection = getPlayerChoice()
-        const computerSelection = getComputerChoice()
-        console.log(playRound(playerSelection, computerSelection))
-    }       
-    console.log(`
-    Wins: ${wins}
-    Loses: ${loses}
-    Draws: ${draws}
-    Invalid: ${invalidInput}`)
-}
-
-game()
-
-winner = (wins - loses)
-if(winner < 0) console.log("You Lose!")
-else console.log("Tou Won!")

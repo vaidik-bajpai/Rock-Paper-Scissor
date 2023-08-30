@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Papers Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <head>
+        <h1>.xXROCK PAPER SCISSORXx.</h1>
+    </head>
+    <main>
+        <section class="message">
+            <p>Choose Your Weapon, Warrior!</p>
+        </section>
+
+        <section class="content">
+            <div id="Rock">
+                <p class="animate">✊</p>
+            </div>
+        
+            <div id="Paper">
+                <p class="animate">✋</p>
+            </div>
+            <div id="Scissor"> 
+                <p class="animate">✌️</p>
+            </div>
+        </section>
+
+        <section class="hitpoints">
+            <div>
+                <p id="yourHp"></p>
+                <p>Your Hitpoints</p>
+            </div>
+            <div>
+                <p id="enemyHp"></p>
+                <p>Enemy's Hitpoints</p>
+            </div>
+        </section>
+        <p id="result"></p>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
