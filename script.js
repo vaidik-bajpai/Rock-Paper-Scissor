@@ -44,6 +44,10 @@ function checkDefeat(){
     } 
 }
 
+function restart(){
+    location.reload()
+}
+
 function playRound(playerSelection, computerSelection){
     if(defeatFlag === true){
         return;
@@ -51,7 +55,7 @@ function playRound(playerSelection, computerSelection){
 
     let ps = playerSelection.toUpperCase()
     let cs = computerSelection.toUpperCase()
-
+    displayMove(ps, cs)
     if(ps === "ROCK" && cs === "PAPER"){
         loses--
         resultEl.textContent = "You Lose! Paper beats Rock"
@@ -98,5 +102,28 @@ function playRound(playerSelection, computerSelection){
         draws++
         resultEl.textContent = "It's a Draw"
         return
+    }
+}
+
+function displayMove(playerMove, enemyMove){
+    const player = document.querySelector('.playersMove')
+    const enemy = document.querySelector('.CPUMove')
+    if(playerMove.toUpperCase() === "ROCK"){
+        player.textContent = "✊"
+    }
+    else if(playerMove.toUpperCase() === "PAPER"){
+        player.textContent= "✋"
+    }
+    else if(playerMove.toUpperCase() === "SCISSOR"){
+        player.textContent = "✌️"
+    }
+    if(enemyMove.toUpperCase() === "ROCK"){
+        enemy.textContent = "✊"
+    }
+    else if(enemyMove.toUpperCase() === "PAPER"){
+        enemy.textContent = "✋"
+    }
+    else if(enemyMove.toUpperCase() === "SCISSOR"){
+        enemy.textContent = "✌️"
     }
 }

@@ -38,6 +38,10 @@ main {
     flex-flow: column;
 }
 
+.player, .CPU{
+    display: flex;
+    gap: 50px;
+}
 .message {
     font-size: 2rem;
     font-weight: bold;
@@ -50,36 +54,58 @@ main {
 }
 
 #Rock, #Paper, #Scissor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    display: grid;
+    place-content: center;
     background: #999;
 
-    height: 150px;
-    width: 150px;
+    height: 125px;
+    width: 125px;
     border-radius: 30px;
-    margin: 40px 0;
+    margin: 20px 0;
 
-    font-size: 70px;
+    font-size: 60px;
 }
-
-#Rock p, #Paper p, #Scissor p{
+#Rock div, #Paper div, #Scissor div{
     width: 100%;
     height: 100%;
-    padding-top: 20px;
     text-align: center;
 }
 #Rock:hover, #Paper:hover, #Scissor:hover{
     outline: 3px solid whitesmoke;
     background: #AAA;
 }
+.cpuCard, .playersMove, .CPUMove{
+    display: grid;
+    place-content: center;
+
+    background: #999;
+
+    height: 125px;
+    width: 125px;
+    border-radius: 30px;
+    margin: 20px 0;
+    color: goldenrod;
+    font-weight: bold;
+    font-size: 80px;
+}
+.playingField{
+    display: flex;
+    gap: 100px;
+    justify-content: space-around;
+    align-items: center;    
+}
+
+.playersMove, .CPUMove{
+    border: 3px solid goldenrod;
+    outline: 1px solid gold;
+    outline-offset: -4px;
+    box-shadow: 0px 0px 5px;
+}
 
 .animate:hover{
     animation-name: revolve;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-    animation-delay: 0.5s;
 }
 
 @keyframes revolve{
@@ -136,4 +162,22 @@ main {
     font-weight: bold;
     font-size: 2rem;
 }
+
+.restart{
+    appearance: none;
+    border: none;
+    background: #AAA;
+    color: goldenrod;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px whitesmoke solid; 
+}
+
+.Hitpoints{
+    display: grid;
+    place-content: center;
+}
+
 

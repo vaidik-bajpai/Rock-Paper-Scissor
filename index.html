@@ -16,30 +16,53 @@
         </section>
 
         <section class="content">
-            <div id="Rock">
-                <p class="animate">✊</p>
+            <div class="player">
+                
+                <div class="playerChoice">
+                    <div id="Rock">
+                        <div class="animate">✊</div>
+                    </div>
+                    <div id="Paper">
+                        <div class="animate">✋</div>
+                    </div>
+                    <div id="Scissor">
+                        <div class="animate">✌️</div>
+                    </div>
+                </div>
             </div>
-        
-            <div id="Paper">
-                <p class="animate">✋</p>
+            <div class="playingField">
+                <div>
+                    <div class="playersMove"></div>
+                    <p>Your Move</p>
+                    <div class="Hitpoints">
+                        <p id="yourHp"></p>
+                        <p>Your Hitpoints</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="CPUMove"></div>
+                    <p>CPU's Move</p>
+                    <div class="Hitpoints">
+                        <p id="enemyHp"></p>
+                        <p>Enemy's Hitpoints</p>
+                    </div>
+                </div>
             </div>
-            <div id="Scissor"> 
-                <p class="animate">✌️</p>
-            </div>
-        </section>
-
-        <section class="hitpoints">
-            <div>
-                <p id="yourHp"></p>
-                <p>Your Hitpoints</p>
-            </div>
-            <div>
-                <p id="enemyHp"></p>
-                <p>Enemy's Hitpoints</p>
+            <div class="CPU">
+                <div class="CPUchoice">
+                    <div class="cpuCard">?</div>
+                    <div class="cpuCard">?</div>
+                    <div class="cpuCard">?</div>
+                </div>
+                
             </div>
         </section>
         <p id="result"></p>
     </main>
+    <!-- <footer>
+        <button onclick="restart()" class="restart">Restart</button>
+    </footer> -->
+    <script src="https://cdn.jsdelivr.net/emojione/2.2.7/lib/js/emojione.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
