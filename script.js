@@ -49,10 +49,11 @@ function restart(){
 }
 
 function playRound(playerSelection, computerSelection){
+    console.log("The Game Commences")
     if(defeatFlag === true){
         return;
     }
-
+    
     let ps = playerSelection.toUpperCase()
     let cs = computerSelection.toUpperCase()
     displayMove(ps, cs)
@@ -127,3 +128,4 @@ function displayMove(playerMove, enemyMove){
         enemy.textContent = "✌️"
     }
 }
+
